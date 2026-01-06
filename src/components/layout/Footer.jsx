@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Coffee, Facebook, Instagram } from 'lucide-react';
-import { fadeInUp, staggerContainer } from '../utils/animations';
+import { fadeInUp, staggerContainer } from '../../utils/animations';
 
 const Footer = () => {
     return (

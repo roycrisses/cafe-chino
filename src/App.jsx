@@ -11,9 +11,11 @@ import Menu from './components/sections/Menu';
 import Gallery from './components/sections/Gallery';
 import Reservation from './components/sections/Reservation';
 import Contact from './components/sections/Contact';
+import Stats from './components/sections/Stats';
 import Preloader from './components/ui/Preloader';
 import ScrollProgress from './components/ui/ScrollProgress';
 import BackToTop from './components/ui/BackToTop';
+import CustomCursor from './components/ui/CustomCursor';
 import 'lenis/dist/lenis.css'
 
 function App() {
@@ -52,11 +54,13 @@ function App() {
 
       {!loading && (
         <>
+          <CustomCursor />
           <ScrollProgress />
           <BackToTop />
           <Navbar />
           <Hero />
           <About />
+          <Stats />
           <Story />
           <Services />
           <Menu />

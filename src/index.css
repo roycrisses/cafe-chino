@@ -70,7 +70,9 @@
   }
 
   .glass-nav {
-    @apply bg-[#0A0A0A]/70 backdrop-blur-xl border-b border-white/5;
+    @apply bg-[#0A0A0A]/80 backdrop-blur-2xl border-b border-white/5;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 }
 
