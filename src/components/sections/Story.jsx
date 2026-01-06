@@ -11,32 +11,44 @@ const StoryCard = ({ name, role, quote, image, delay }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: delay }}
             viewport={{ once: true }}
+            whileHover={{
+                y: -8,
+                boxShadow: "0 25px 50px -12px rgba(198, 156, 109, 0.25)"
+            }}
             className="relative group"
         >
-            <div className="relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-sm p-8 h-full transition-colors duration-500 hover:bg-white/10 hover:border-coffee/30">
+            <div className="relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-sm p-8 h-full transition-all duration-700 hover:bg-white/10 hover:border-coffee/40 hover:shadow-[0_0_40px_rgba(198,156,109,0.15)]">
                 {/* Quote Icon */}
-                <div className="absolute top-6 right-6 text-coffee/20 group-hover:text-coffee/40 transition-colors duration-500">
+                <motion.div
+                    className="absolute top-6 right-6 text-coffee/20 transition-all duration-700 group-hover:text-coffee/50"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <Quotes size={48} weight="fill" />
-                </div>
+                </motion.div>
 
                 {/* Profile Image */}
                 <div className="mb-6 relative">
-                    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-coffee/50 p-1">
+                    <motion.div
+                        className="w-20 h-20 rounded-full overflow-hidden border-2 border-coffee/50 p-1 group-hover:border-coffee transition-all duration-500"
+                        whileHover={{ scale: 1.1 }}
+                    >
                         <img
                             src={image}
                             alt={name}
-                            className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                            loading="lazy"
+                            className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                    <p className="text-lg text-cream/80 italic mb-6 font-light leading-relaxed">
+                    <p className="text-lg text-cream/80 italic mb-6 font-light leading-relaxed group-hover:text-cream transition-colors duration-500">
                         "{quote}"
                     </p>
                     <div>
-                        <h4 className="text-xl font-display font-bold text-white tracking-wide">{name}</h4>
+                        <h4 className="text-xl font-display font-bold text-white tracking-wide group-hover:text-coffee transition-colors duration-500">{name}</h4>
                         <span className="text-coffee text-sm uppercase tracking-widest font-medium">{role}</span>
                     </div>
                 </div>

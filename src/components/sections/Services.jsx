@@ -54,17 +54,24 @@ const Services = () => {
                         <motion.div
                             key={index}
                             variants={fadeInUp}
-                            whileHover={{ y: -10 }}
-                            className="glass-card p-8 rounded-2xl hover:border-coffee/30 transition-all duration-500 group relative overflow-hidden"
+                            whileHover={{ y: -12, scale: 1.02 }}
+                            className="glass-card p-8 rounded-[2rem] hover:border-coffee/40 transition-all duration-700 group relative overflow-hidden hover:shadow-[0_20px_60px_-15px_rgba(198,156,109,0.3)]"
                         >
-                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            {/* Gradient Border Effect */}
+                            <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-coffee/20 via-transparent to-coffee-dark/20 pointer-events-none" />
+
+                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
                                 {React.cloneElement(service.icon, { size: 60 })}
                             </div>
-                            <div className="w-14 h-14 bg-coffee/10 text-coffee rounded-xl flex items-center justify-center mb-6 group-hover:bg-coffee group-hover:text-white transition-all duration-300 relative z-10">
+                            <motion.div
+                                className="w-14 h-14 bg-coffee/10 text-coffee rounded-xl flex items-center justify-center mb-6 group-hover:bg-coffee group-hover:text-white transition-all duration-500 relative z-10"
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.6 }}
+                            >
                                 {service.icon}
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 relative z-10">{service.title}</h3>
-                            <p className="text-cream/60 text-sm leading-relaxed relative z-10">{service.description}</p>
+                            </motion.div>
+                            <h3 className="text-xl font-bold mb-3 relative z-10 group-hover:text-coffee transition-colors duration-500">{service.title}</h3>
+                            <p className="text-cream/60 text-sm leading-relaxed relative z-10 group-hover:text-cream/80 transition-colors duration-500">{service.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>

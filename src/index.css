@@ -45,6 +45,11 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
   body {
     @apply bg-background text-cream font-sans antialiased overflow-x-hidden;
   }
