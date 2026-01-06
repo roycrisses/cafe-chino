@@ -1,23 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const Button = ({ children, variant = 'primary', className = '', ...props }) => {
-    const baseStyles = "px-8 py-3.5 rounded-full font-medium tracking-wide transition-all duration-300 flex items-center justify-center gap-2 transform active:scale-95 text-sm uppercase";
+const Button = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
+    const [ripples, setRipples] = useState([]);
+
+    const handleClick = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const newRipple = {
+            x,
+            y,
+            id: Date.now()
+        };
+
+        setRipples([...ripples, newRipple]);
+        setTimeout(() => {
+            setRipples(ripples => ripples.filter(r => r.id !== newRipple.id));
+        }, 600);
+
+        if (onClick) onClick(e);
+    };
 
     const variants = {
-        primary: "bg-gradient-to-r from-coffee to-coffee-dark text-white hover:shadow-lg hover:shadow-coffee/25 hover:-translate-y-1",
-        secondary: "bg-white/5 backdrop-blur-md border border-white/10 text-cream hover:bg-white/10 hover:border-coffee/30 hover:text-white",
-        outline: "bg-transparent border border-coffee/30 text-coffee hover:bg-coffee hover:text-white hover:border-coffee",
-        'outline-light': "bg-transparent border border-white/20 text-cream hover:bg-white hover:text-background",
+        primary: 'bg-coffee hover:bg-coffee-dark text-white border-2 border-coffee hover:border-coffee-dark shadow-[0_4px_20px_rgba(198,156,109,0.3)] hover:shadow-[0_8px_30px_rgba(198,156,109,0.5)]',
+        outline: 'bg-transparent hover:bg-coffee text-cream hover:text-white border-2 border-cream hover:border-coffee',
+        ghost: 'bg-transparent hover:bg-white/10 text-cream border-2 border-transparent hover:border-white/20',
     };
 
     return (
         <motion.button
-            whileHover={{ y: -2 }}
-            className={`${baseStyles} ${variants[variant]} ${className}`}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleClick}
+            className={`px-8 py-3 rounded-lg font-medium transition-all duration-300 relative overflow-hidden ${variants[variant]
+                } ${className}`}
             {...props}
         >
-            {children}
+            {/* Ripple effects */}
+            {ripples.map(ripple => (
+                <span
+                    key={ripple.id}
+                    className="absolute bg-white/30 rounded-full animate-ripple"
+                    style={{
+                        left: ripple.x,
+                        top: ripple.y,
+                        width: 10,
+                        height: 10,
+                        transform: 'translate(-50%, -50%)'
+                    }}
+                />
+            ))}
+            <span className="relative z-10">{children}</span>
         </motion.button>
     );
 };
