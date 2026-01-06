@@ -82,24 +82,25 @@ const Menu = () => {
                                 animate="show"
                                 exit="hidden"
                                 key={item.id}
-                                className="glass-card rounded-2xl overflow-hidden hover:border-coffee/40 group cursor-pointer transition-all duration-500"
+                                className="glass-card rounded-[2rem] overflow-hidden hover:border-coffee/50 group cursor-pointer transition-all duration-700 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
                             >
-                                <div className="h-56 overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 z-10" />
+                                <div className="h-64 overflow-hidden relative">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500 z-10" />
                                     <img
                                         src={item.image}
                                         alt={item.name}
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                        loading="lazy"
+                                        className="w-full h-full object-cover transform scale-105 group-hover:scale-115 transition-transform duration-1000"
                                     />
-                                    <div className="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-4 py-1.5 rounded-full text-sm z-20 shadow-lg">
+                                    <div className="absolute bottom-5 right-5 bg-coffee/20 backdrop-blur-xl border border-white/20 text-cream font-bold px-5 py-2 rounded-full text-sm z-20 shadow-xl group-hover:bg-coffee group-hover:text-black transition-all duration-500">
                                         {item.price}
                                     </div>
                                 </div>
-                                <div className="p-6">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <h4 className="text-xl font-bold font-display group-hover:text-coffee transition-colors">{item.name}</h4>
+                                <div className="p-7">
+                                    <div className="flex justify-between items-start mb-3">
+                                        <h4 className="text-2xl font-bold font-display group-hover:text-coffee transition-colors duration-500 tracking-tight">{item.name}</h4>
                                     </div>
-                                    <p className="text-cream/60 text-sm leading-relaxed font-light line-clamp-2">{item.desc}</p>
+                                    <p className="text-cream/70 text-sm leading-relaxed font-light line-clamp-2 italic">{item.desc}</p>
                                 </div>
                             </motion.div>
                         ))}

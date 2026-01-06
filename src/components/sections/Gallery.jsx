@@ -81,7 +81,7 @@ const Gallery = () => {
                             key={item.id}
                             variants={fadeInUp}
                             onClick={() => setSelectedItem(item)}
-                            className={`relative group rounded-3xl overflow-hidden shadow-xl border border-white/5 ${item.span} cursor-pointer`}
+                            className={`relative group rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 ${item.span} cursor-pointer bg-white/5`}
                         >
                             {item.type === 'video' ? (
                                 <>
@@ -91,11 +91,14 @@ const Gallery = () => {
                                         muted
                                         loop
                                         playsInline
-                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                                        className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-[1.5s]"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-                                    <div className="absolute top-4 right-4 text-white/80 group-hover:text-white transition-colors">
-                                        <PlayCircle size={32} weight="light" />
+                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700" />
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/50 group-hover:text-white group-hover:scale-125 transition-all duration-500 opacity-60 group-hover:opacity-100">
+                                        <PlayCircle size={64} weight="thin" />
+                                    </div>
+                                    <div className="absolute bottom-6 left-6 text-white/80 font-display text-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                        {item.alt}
                                     </div>
                                 </>
                             ) : (
@@ -103,9 +106,13 @@ const Gallery = () => {
                                     <img
                                         src={item.src}
                                         alt={item.alt}
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                        loading="lazy"
+                                        className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-[1.5s]"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700" />
+                                    <div className="absolute bottom-6 left-6 text-white/80 font-display text-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                        {item.alt}
+                                    </div>
                                 </>
                             )}
                         </motion.div>

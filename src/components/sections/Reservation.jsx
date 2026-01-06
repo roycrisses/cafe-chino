@@ -51,9 +51,9 @@ const Reservation = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="text-cream/60 text-lg font-light max-w-2xl mx-auto leading-relaxed"
+                            className="text-cream/70 text-lg font-light max-w-2xl mx-auto leading-relaxed"
                         >
-                            Whether it's a coffee date or a family feast, we'll keep a seat warm for you. detailed form below.
+                            Whether it's a coffee date or a family feast, we'll keep a seat warm for you. Reserve your spot below.
                         </motion.p>
                     </div>
 
@@ -68,14 +68,20 @@ const Reservation = () => {
                         {formStatus === 'success' ? (
                             <div className="flex flex-col items-center justify-center py-20 text-center">
                                 <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center text-green-500 mb-6"
+                                    initial={{ scale: 0, rotate: -45 }}
+                                    animate={{ scale: 1, rotate: 0 }}
+                                    transition={{ type: "spring", damping: 12 }}
+                                    className="w-24 h-24 bg-coffee/10 border border-coffee/30 rounded-full flex items-center justify-center text-coffee mb-8 shadow-[0_0_30px_rgba(198,156,109,0.2)]"
                                 >
-                                    <CheckCircle size={48} weight="fill" />
+                                    <CheckCircle size={56} weight="fill" />
                                 </motion.div>
-                                <h3 className="text-3xl font-display font-bold text-white mb-2">Reservation Confirmed!</h3>
-                                <p className="text-cream/60">We can't wait to see you.</p>
+                                <h3 className="text-4xl font-display font-bold text-white mb-4">Table Reserved!</h3>
+                                <p className="text-cream/70 text-lg">We've saved a spot just for you. See you soon!</p>
+                                <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: "100px" }}
+                                    className="h-[1px] bg-coffee/30 mt-8"
+                                />
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-8">

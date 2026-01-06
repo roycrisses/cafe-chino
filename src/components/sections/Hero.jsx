@@ -14,18 +14,18 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 1.2 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
-                    className="text-[15vw] leading-none font-display font-black text-white/[0.03] whitespace-nowrap"
+                    className="text-[15vw] leading-none font-display font-black text-white/[0.04] whitespace-nowrap drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
                 >
                     CAFE CHINO
                 </motion.h1>
             </div>
 
             {/* Organic Gradient Orbs */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-coffee/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-coffee-dark/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-coffee/15 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-coffee-dark/15 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
             {/* Decorative Splash Pattern - Full Screen */}
-            <div className="absolute inset-0 pointer-events-none opacity-5 mix-blend-overlay"
+            <div className="absolute inset-0 pointer-events-none opacity-10 mix-blend-overlay"
                 style={{
                     backgroundImage: 'url("/images/food and ambience images/coffee-splash-bg.png")',
                     backgroundSize: 'cover',
@@ -44,17 +44,17 @@ const Hero = () => {
                         className="lg:col-span-7 relative z-10 text-center lg:text-left pt-10 lg:pt-0"
                     >
                         <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-                            <span className="w-2 h-2 rounded-full bg-coffee animate-pulse" />
+                            <span className="w-2 h-2 rounded-full bg-coffee animate-pulse shadow-[0_0_10px_#C69C6D]" />
                             <span className="text-coffee font-medium tracking-widest uppercase text-[10px]">Since 2024</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black leading-[0.9] mb-8 tracking-tighter">
-                            <span className="text-transparent text-stroke block hover:text-white/10 transition-colors duration-500">HOMEMADE</span>
-                            <span className="text-white block">COFFEE</span>
+                            <span className="text-transparent text-stroke block hover:text-white/10 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">HOMEMADE</span>
+                            <span className="text-white block drop-shadow-2xl">COFFEE</span>
                             <span className="text-gradient-gold text-4xl sm:text-6xl md:text-7xl lg:text-8xl italic font-serif block mt-2">& Good Vibes.</span>
                         </motion.h1>
 
-                        <motion.p variants={fadeInUp} className="text-cream/60 text-base sm:text-lg mb-10 max-w-lg leading-relaxed font-light mx-auto lg:mx-0 lg:border-l lg:border-white/10 lg:pl-6 border-none pl-0">
+                        <motion.p variants={fadeInUp} className="text-cream/70 text-base sm:text-lg mb-10 max-w-lg leading-relaxed font-light mx-auto lg:mx-0 lg:border-l lg:border-white/10 lg:pl-6 border-none pl-0">
                             Escape the noise. Step into a world where every cup tells a story and every corner feels like home.
                         </motion.p>
 
