@@ -51,16 +51,25 @@ const Menu = () => {
                     className="flex flex-wrap justify-center gap-4 mb-12"
                 >
                     {categories.map((cat) => (
-                        <button
+                        <motion.button
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.id)}
-                            className={`px-6 py-2 rounded-full border transition-all duration-300 ${activeCategory === cat.id
-                                ? 'bg-coffee border-coffee text-white'
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`px-6 py-2 rounded-full border transition-all duration-300 relative overflow-hidden ${activeCategory === cat.id
+                                ? 'bg-coffee border-coffee text-white shadow-[0_0_20px_rgba(198,156,109,0.4)]'
                                 : 'border-white/10 text-white/60 hover:border-coffee/50 hover:text-white'
                                 }`}
                         >
-                            {cat.label}
-                        </button>
+                            {activeCategory === cat.id && (
+                                <motion.div
+                                    layoutId="activeCategory"
+                                    className="absolute inset-0 bg-gradient-to-r from-coffee to-coffee-dark rounded-full"
+                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                />
+                            )}
+                            <span className="relative z-10">{cat.label}</span>
+                        </motion.button>
                     ))}
                 </motion.div>
 

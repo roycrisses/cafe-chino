@@ -33,6 +33,33 @@ const Hero = () => {
                 }}
             />
 
+            {/* Floating Decorative Elements */}
+            <motion.div
+                animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 5, 0]
+                }}
+                transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                }}
+                className="absolute top-20 right-[10%] w-16 h-16 rounded-full bg-coffee/5 backdrop-blur-sm border border-coffee/10 pointer-events-none hidden lg:block"
+            />
+            <motion.div
+                animate={{
+                    y: [0, 30, 0],
+                    rotate: [0, -10, 0]
+                }}
+                transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1
+                }}
+                className="absolute bottom-32 left-[15%] w-12 h-12 rounded-full bg-coffee/5 backdrop-blur-sm border border-coffee/10 pointer-events-none hidden lg:block"
+            />
+
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-12 items-center">
 
