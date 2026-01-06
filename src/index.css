@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0A;
+  /* Darker, richer black */
+  --color-secondary: #141414;
+  /* Deep charcoal */
+  --color-cream: #F9F1E7;
+  /* Softer, warmer cream */
+  --color-coffee: #C69C6D;
+  /* Muted Gold/Light Coffee for luxury */
+  --color-coffee-dark: #8C6239;
+  --color-accent: #EBD3B9;
+  /* Light champagne accent */
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Bodoni Moda", serif;
+  /* Premium, high-fashion serif */
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-cream font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-cream tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  .glass-nav {
+    @apply bg-[#0A0A0A]/70 backdrop-blur-xl border-b border-white/5;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(249, 241, 231, 0.15);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #F9F1E7 0%, #C69C6D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(to right, #C69C6D, #EBD3B9, #C69C6D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+  }
+}
