@@ -16,11 +16,11 @@ const About = () => {
                     {/* Image Side - Scrapbook Style */}
                     <div className="relative lg:order-2 mb-10 lg:mb-0">
                         <motion.div
-                            initial={{ rotate: -5, opacity: 0, y: 30 }}
-                            whileInView={{ rotate: -3, opacity: 1, y: 0 }}
+                            initial={{ rotate: -5, opacity: 0, y: 30, scale: 0.9 }}
+                            whileInView={{ rotate: -3, opacity: 1, y: 0, scale: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             viewport={{ once: true }}
-                            whileHover={{ rotate: 0, scale: 1.02 }}
+                            whileHover={{ rotate: 0, scale: 1.05 }}
                             className="relative z-10 px-4 sm:px-0"
                         >
                             <img
